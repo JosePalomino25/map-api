@@ -1,0 +1,28 @@
+.example-container {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  width: 30%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.header{
+  background-color: #90EE90;
+}
+.example-card {
+  width: calc(100% - 40px);
+  margin: 10px auto;
+}
+.example-sidenav::-webkit-scrollbar {
+  display: none; // Oculta la barra desplazadora
+}

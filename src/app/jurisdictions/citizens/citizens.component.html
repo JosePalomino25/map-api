@@ -1,0 +1,36 @@
+<mat-drawer-container class="example-container" autosize>
+  <div>
+    <mat-toolbar class="header">
+      <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+          Toggle sidenav
+        </button>
+      </div>
+      <span>Tienda el Palomo 🐦</span>
+    </mat-toolbar>
+  </div>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+    <mat-card class="example-card"  *ngFor="let citizen of citizens">
+      <mat-card-title-group>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Small</mat-card-subtitle>
+        <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+      </mat-card-title-group>
+      <mat-card-content>
+        <ul>
+          <li>{{citizen.service_id}}</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-drawer>
+
+  <app-map></app-map>
+
+
+</mat-drawer-container>
