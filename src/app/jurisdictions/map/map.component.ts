@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MapService} from "../service/map.service";
 
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -15,4 +16,5 @@ export class MapComponent implements AfterViewInit{
    this.mapService.initializeMap()
     this.mapService.getCitizens()
   }
+
 }

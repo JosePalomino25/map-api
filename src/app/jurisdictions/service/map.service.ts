@@ -35,41 +35,45 @@ export class MapService {
         }),
       ],
       view: new View({
-        center: fromLonLat([-72.9876, 7.1234]),
-        zoom: 2,
+        center: fromLonLat([-3.70256, 40.4165]),
+        zoom: 6,
       }),
       controls: [
         new Zoom()]
-  });
+      });
   }
-
   getCitizens(): void {
     this.citizensService.getProducts().subscribe((data: Citizens[]) => {
       this.citizen = data;
-      for(let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         const firtsService = this.citizen[i];
         this.addMarker(firtsService.long, firtsService.lat)
       }
     });
   }
   addMarker(long: number, lat: number): void {
-    const marker = new Feature({
-      geometry: new Point(fromLonLat([long, lat])),
-    });
-    const markerStyle = new Style({
-      image: new Icon({
-        src: '../assets/marcador-de-posicion.png',
-        width: 50,
-      }),
-    });
-    marker.setStyle(markerStyle);
-    const vectorSource = new VectorSource({
-      features: [marker],
-    });
-    const vectorLayer = new VectorLayer({
-      source: vectorSource,
-    });
-    this.map.addLayer(vectorLayer);
+      const marker = new Feature({
+        geometry: new Point(fromLonLat([long, lat])),
+      });
+      const markerStyle = new Style({
+        image: new Icon({
+          src: '../assets/marcador-de-posicion.png',
+          width: 50,
+        }),
+      });
+      marker.setStyle(markerStyle);
+      const vectorSource = new VectorSource({
+        features: [marker],
+      });
+      const vectorLayer = new VectorLayer({
+        source: vectorSource,
+      });
+      this.map.addLayer(vectorLayer);
+  }
+  increaseZoomLocation(lat: number, lng: number): void {
+    const view = this.map.getView();
+    view.setCenter(fromLonLat([lat, lng]));
+    view.setZoom(18);
   }
 }
 

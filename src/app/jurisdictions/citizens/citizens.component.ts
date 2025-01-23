@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CitizensService} from "../service/citizens.service";
 import { Citizens} from "../citizens";
+import {MapService} from "../service/map.service";
 
 @Component({
   selector: 'app-citizens',
@@ -8,10 +9,10 @@ import { Citizens} from "../citizens";
   styleUrls: ['./citizens.component.scss']
 })
 export class CitizensComponent implements OnInit {
-  showFiller = false;
   citizens: Citizens[] = []
   curentsCitizen!:string | null
-  constructor( private citizensService:CitizensService ) { }
+  constructor( private citizensService:CitizensService,
+  private mapService:MapService) { }
 
   ngOnInit(): void {
     this.getCitizens();
@@ -28,5 +29,7 @@ export class CitizensComponent implements OnInit {
 
   eventSelectService(service:Citizens){
     this.curentsCitizen = service.jurisdiction_id
+    this.mapService.increaseZoomLocation(service.long, service.lat)
   }
+
 }

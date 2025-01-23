@@ -9,9 +9,6 @@ import {MatCardModule} from "@angular/material/card";
 import { MapComponent } from './map/map.component';
 import {MatIconModule} from "@angular/material/icon";
 
-
-
-
 @NgModule({
     declarations: [
         CitizensComponent,
