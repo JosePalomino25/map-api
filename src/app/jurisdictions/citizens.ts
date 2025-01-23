@@ -14,3 +14,4 @@ export interface Citizens{
     visible_name:string
   }
 }
+

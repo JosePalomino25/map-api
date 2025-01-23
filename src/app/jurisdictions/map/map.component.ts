@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {MapService} from "../service/map.service";
+import {MapService} from "./map.service";
 
 
 @Component({
@@ -11,10 +11,9 @@ export class MapComponent implements AfterViewInit{
 
   constructor(private mapService: MapService) { }
 
-
   ngAfterViewInit(): void {
-   this.mapService.initializeMap()
-    this.mapService.getCitizens()
+   this.mapService.initializeMap();
+    this.mapService.getCitizens();
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CitizensService} from "../service/citizens.service";
+import {CitizensService} from "./citizens.service";
 import { Citizens} from "../citizens";
-import {MapService} from "../service/map.service";
+import {MapService} from "../map/map.service";
 
 @Component({
   selector: 'app-citizens',
@@ -9,17 +9,17 @@ import {MapService} from "../service/map.service";
   styleUrls: ['./citizens.component.scss']
 })
 export class CitizensComponent implements OnInit {
-  citizens: Citizens[] = []
-  curentsCitizen!:string | null
-  constructor( private citizensService:CitizensService,
-  private mapService:MapService) { }
+  citizens: Citizens[] = [];
+  curentsCitizen!:string | null;
+
+  constructor( private citizensService:CitizensService, private mapService:MapService) { }
 
   ngOnInit(): void {
     this.getCitizens();
   }
 
   getCitizens(){
-    this.citizensService.getProducts().subscribe((data:Citizens[])=>{
+    this.citizensService.getService().subscribe((data:Citizens[])=>{
       this.citizens = data;
       this.citizens.forEach(citizen => {
         console.log(citizen.lat, citizen.long);
@@ -28,8 +28,7 @@ export class CitizensComponent implements OnInit {
   }
 
   eventSelectService(service:Citizens){
-    this.curentsCitizen = service.jurisdiction_id
-    this.mapService.increaseZoomLocation(service.long, service.lat)
+    this.curentsCitizen = service.jurisdiction_id;
+    this.mapService.increaseZoomLocation(service.long, service.lat);
   }
-
 }

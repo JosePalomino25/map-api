@@ -10,10 +10,11 @@ import {Citizens} from "../citizens";
 })
 export class CitizensService {
   private apiURL=environment.apiURL;
+
   constructor(private http:HttpClient) { }
 
-  getProducts():Observable<Citizens[]> {
-    const endpoint = this.apiURL + '/public-api/requests?limit=10&page=20'
+  getService():Observable<Citizens[]> {
+    const endpoint = this.apiURL + 'requests?limit=10&page=20'
     return this.http.get<Citizens[]>(endpoint);
   }
 

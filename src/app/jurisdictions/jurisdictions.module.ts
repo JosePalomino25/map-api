@@ -10,10 +10,10 @@ import { MapComponent } from './map/map.component';
 import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
-    declarations: [
-        CitizensComponent,
-        MapComponent,
-    ],
+  declarations: [
+    CitizensComponent,
+    MapComponent,
+  ],
   exports: [
     CitizensComponent,
     MapComponent
