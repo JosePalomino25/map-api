@@ -3,34 +3,42 @@
     <mat-toolbar class="header">
       <div class="example-sidenav-content">
         <button type="button" mat-button (click)="drawer.toggle()">
-          Toggle sidenav
+          <mat-icon>menu</mat-icon>
         </button>
       </div>
-      <span>Tienda el Palomo 🐦</span>
+      <span>MTX Palomo Canary🐦</span>
     </mat-toolbar>
   </div>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
-    <mat-card class="example-card"  *ngFor="let citizen of citizens">
+<div class="title-principal">
+  <h2 *ngIf="curentsCitizen; else noJurisdiction" >
+    Estás en la jurisdiccion: {{curentsCitizen}}
+  </h2>
+  <ng-template #noJurisdiction>
+    <h1>Estás en el menú principal</h1>
+  </ng-template>
+</div>
+
+    <mat-card class="example-card"  *ngFor="let citizen of citizens" (click)="eventSelectService(citizen)">
       <mat-card-title-group>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Small</mat-card-subtitle>
-        <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+        <mat-card-title class="title-container">
+          <img [src]="citizen.typology.icon" class="image-service">
+          {{citizen.service_name}}
+        </mat-card-title>
+        <h3 class="state-label"
+            [ngStyle]="{
+            background:citizen.status_node.visible_name === 'Solucionado' ? 'green' :
+                   citizen.status_node.visible_name === 'En progreso' ? 'yellow' : '#ADD8E6'
+          }"> {{ citizen.status_node.visible_name }}</h3>
+        <mat-card-subtitle>{{citizen.address}}</mat-card-subtitle>
+
       </mat-card-title-group>
       <mat-card-content>
         <ul>
-          <li>{{citizen.service_id}}</li>
+          <li *ngIf="citizen.description">{{citizen.description}}</li>
         </ul>
       </mat-card-content>
     </mat-card>
-
   </mat-drawer>
-
   <app-map></app-map>
-
-
 </mat-drawer-container>

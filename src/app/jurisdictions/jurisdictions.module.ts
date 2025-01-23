@@ -7,6 +7,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import { MapComponent } from './map/map.component';
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -26,7 +27,8 @@ import { MapComponent } from './map/map.component';
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class JurisdictionsModule { }

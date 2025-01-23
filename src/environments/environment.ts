@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL:'https://api-canary.mejoratuciudad.org'
+  apiURL:'https://api-pre.mejoratuciudad.org'
 };
 
 /*

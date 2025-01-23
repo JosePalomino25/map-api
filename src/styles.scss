@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ol-zoom-in, .ol-zoom-out {
+  background-color: #007bff; /* Color de los botones de zoom */
+  border: 0.1rem solid black;
+  color: white;
+  font-size: 16px;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 100%;
+}
+
+.ol-control{
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+}
+
+.ol-zoom-in:hover, .ol-zoom-out:hover {
+  background-color: #0056b3;
+}

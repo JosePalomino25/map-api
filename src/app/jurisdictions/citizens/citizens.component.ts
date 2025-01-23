@@ -9,7 +9,8 @@ import { Citizens} from "../citizens";
 })
 export class CitizensComponent implements OnInit {
   showFiller = false;
-  citizens!: Citizens[];
+  citizens: Citizens[] = []
+  curentsCitizen!:string | null
   constructor( private citizensService:CitizensService ) { }
 
   ngOnInit(): void {
@@ -19,10 +20,13 @@ export class CitizensComponent implements OnInit {
   getCitizens(){
     this.citizensService.getProducts().subscribe((data:Citizens[])=>{
       this.citizens = data;
+      this.citizens.forEach(citizen => {
+        console.log(citizen.lat, citizen.long);
+      })
     })
   }
 
-  event(){
-
+  eventSelectService(service:Citizens){
+    this.curentsCitizen = service.jurisdiction_id
   }
 }

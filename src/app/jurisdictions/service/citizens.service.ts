@@ -13,7 +13,7 @@ export class CitizensService {
   constructor(private http:HttpClient) { }
 
   getProducts():Observable<Citizens[]> {
-    const endpoint = this.apiURL + '/public-api/requests?limit=5&page=1'
+    const endpoint = this.apiURL + '/public-api/requests?limit=10&page=20'
     return this.http.get<Citizens[]>(endpoint);
   }
 

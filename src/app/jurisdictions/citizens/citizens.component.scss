@@ -24,5 +24,41 @@
   margin: 10px auto;
 }
 .example-sidenav::-webkit-scrollbar {
-  display: none; // Oculta la barra desplazadora
+  display: none;
 }
+
+.image-service{
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+}
+
+mat-card{
+  margin: 2px;
+}
+
+mat-card:hover{
+  background-color: #90EE90;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.state-label {
+  height: auto;
+  width: auto;
+  padding:  8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.title-principal{
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
